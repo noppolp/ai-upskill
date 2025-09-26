@@ -60,7 +60,42 @@
 
 ---
 
-## Part 2: พื้นฐาน Infrastructure (Servers, Virtualization & Containers)
+## Part 2: พื้นฐาน Web Technology & Development
+
+1. **[Multiple Choice]** ข้อใดอธิบายความแตกต่างระหว่าง SPA (Single Page Application) กับ SSR (Server-Side Rendering) ได้ถูกต้องที่สุด?
+   - A. SPA เร็วกว่าเสมอ ส่วน SSR ช้ากว่าเสมอ
+   - B. SPA เรนเดอร์ส่วนใหญ่ที่ฝั่งเบราว์เซอร์ ส่วน SSR สร้าง HTML ที่ฝั่งเซิร์ฟเวอร์ทุกคำขอ ช่วยเรื่อง TTFB/SEO ได้ดีขึ้น
+   - C. SPA และ SSR ไม่มีความแตกต่างกันในเชิงสถาปัตยกรรม
+   - D. SSR ใช้ได้เฉพาะกับเว็บไซต์ Static เท่านั้น
+   _เฉลย:_ B
+
+2. **[Multiple Choice]** แอตทริบิวต์ `defer` ของแท็ก `<script>` มีผลอย่างไร?
+   - A. โหลดและรันทันที ระหว่าง HTML parser กำลังทำงาน (บล็อกการเรนเดอร์)
+   - B. ดาวน์โหลดสคริปต์ไปพร้อมกัน แต่จะรันหลังจาก HTML ถูก parse เสร็จ และคงลำดับสคริปต์
+   - C. ทำให้สคริปต์รันแบบสุ่มลำดับก่อนหน้าเสมอ
+   - D. ใช้สำหรับโหลดไฟล์ CSS เท่านั้น
+   _เฉลย:_ B
+
+3. **[Multiple Choice]** แนวทางใดเหมาะสมที่สุดสำหรับเก็บ session token ฝั่งเว็บให้ปลอดภัย?
+   - A. เก็บใน `localStorage`
+   - B. เก็บในคุกกี้ที่ตั้งค่า `HttpOnly` และ `Secure`
+   - C. แนบใน query string ของ URL ทุกครั้ง
+   - D. เก็บเป็นตัวแปร global บนหน้าเว็บ
+   _เฉลย:_ B
+
+4. **[Multiple Choice]** ข้อใดกล่าวถึง CORS ได้ถูกต้องที่สุด?
+   - A. เป็นการตั้งค่าที่ต้องกำหนดที่เบราว์เซอร์ของผู้ใช้เท่านั้น
+   - B. เป็นนโยบายความปลอดภัยของเบราว์เซอร์ เซิร์ฟเวอร์ต้องส่ง header เช่น `Access-Control-Allow-Origin` เพื่ออนุญาต cross-origin
+   - C. การติดตั้งปลั๊กอินปิด CORS บนเบราว์เซอร์เป็นวิธีที่ถูกต้องในโปรดักชัน
+   - D. ไม่เกี่ยวข้องกับคำขอแบบ cross-origin
+   _เฉลย:_ B
+
+5. **[Subjective - Mini Scenario]** แอปแบบ SPA ที่โฮสต์บน `https://app.example.com` เรียก API ที่ `https://api.example.com` แล้วพบ error เกี่ยวกับ CORS และบางครั้งได้ `401 Unauthorized` คุณจะวิเคราะห์สาเหตุและเสนอวิธีแก้อย่างไร (เช่น การตั้งค่า CORS, preflight, การส่ง credential/token อย่างปลอดภัย, การใช้ reverse proxy/CDN)?
+   _แนวคำตอบ:_ ตรวจสอบ preflight (OPTIONS), ตอบ `Access-Control-Allow-Origin` เฉพาะโดเมน, กรณีส่งคุกกี้ให้ตั้ง `Access-Control-Allow-Credentials` และกำหนด `withCredentials` ฝั่งไคลเอนต์, พิจารณาเก็บ token ในคุกกี้ `HttpOnly; Secure`, จัดการ `Authorization` header ให้ถูกต้อง, ใช้ reverse proxy รวมโดเมนลด CORS, เพิ่มการตรวจสอบ log/headers เพื่อไล่สาเหตุ 401
+
+---
+
+## Part 3: พื้นฐาน Infrastructure (Servers, Virtualization & Containers)
 
 1. **[Multiple Choice]** ข้อใดอธิบายความแตกต่างหลักระหว่าง Virtual Machine (VM) กับ Container ได้ถูกต้องที่สุด?
    - A. VM ใช้ kernel ร่วมกับ host เสมอ ส่วน Container มี kernel แยกของตัวเอง
@@ -95,7 +130,7 @@
 
 ---
 
-## Part 3: Version Control (Git)
+## Part 4: Version Control (Git)
 
 1. **[Multiple Choice]** ข้อใดอธิบายคำว่า Repository ได้ถูกต้องที่สุด?
    - A. พื้นที่เก็บซอร์สโค้ดที่ไม่มีประวัติการเปลี่ยนแปลง
@@ -130,7 +165,7 @@
 
 ---
 
-## Part 4: พื้นฐาน Data Structure & Database
+## Part 5: พื้นฐาน Data Structure & Database
 
 1. **[Multiple Choice]** ข้อใดกล่าวถึงความแตกต่างหลักระหว่างฐานข้อมูล Relational และ NoSQL ได้ถูกต้อง?
    - A. Relational ใช้ไฟล์ CSV เสมอ ส่วน NoSQL ใช้ไฟล์ JSON เสมอ
@@ -165,7 +200,7 @@
 
 ---
 
-## Part 5: Software Development Lifecycle (SDLC)
+## Part 6: Software Development Lifecycle (SDLC)
 
 1. **[Multiple Choice]** ขั้นตอนใดต่อไปนี้อยู่ในลำดับที่ถูกต้องของ SDLC พื้นฐาน?
    - A. Deployment → Testing → Design → Requirement
@@ -200,7 +235,7 @@
 
 ---
 
-## Part 6: Basic Security Awareness
+## Part 7: Basic Security Awareness
 
 1. **[Multiple Choice]** ข้อใดคือแนวทางการตั้งรหัสผ่านที่ปลอดภัย?
    - A. ใช้ชื่อเล่นและปีเกิดเพื่อจำง่าย
@@ -235,7 +270,7 @@
 
 ---
 
-## Part 7: พื้นฐานการสื่อสารและการนำเสนอ (Communication & Visualization)
+## Part 8: พื้นฐานการสื่อสารและการนำเสนอ (Communication & Visualization)
 
 1. **[Multiple Choice]** ข้อใดคือองค์ประกอบหลักของ User Story ที่ดี?
    - A. Title, Attachment, Reference

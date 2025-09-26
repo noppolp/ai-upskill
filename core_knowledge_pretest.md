@@ -12,7 +12,16 @@
 - HTTP Status Codes ที่ควรรู้ (200, 400, 404, 500)
 - REST API, JSON, และการสื่อสารระหว่างระบบ
 
-## 2️⃣ พื้นฐาน Infrastructure (Servers, Virtualization & Containers)
+## 2️⃣ พื้นฐาน Web Technology & Development
+
+- องค์ประกอบเว็บ: Browser, Server, HTTP Lifecycle, DOM
+- HTML/CSS/JavaScript พื้นฐาน และการจัดโครงสร้างหน้า/คอมโพเนนต์
+- รูปแบบสถาปัตยกรรมเว็บ: SPA, SSR, SSG และข้อดีข้อจำกัด
+- การสื่อสารกับ Backend: REST/GraphQL, การจัดการ Error/Retry, Versioning
+- ความปลอดภัยสำหรับเว็บ: CORS, Cookie/Session, CSRF, Content Security Policy (CSP)
+- ประสิทธิภาพและคุณภาพ: การโหลดแบบ `defer/async`, การ bundle/optimize, A11y/SEO เบื้องต้น
+
+## 3️⃣ พื้นฐาน Infrastructure (Servers, Virtualization & Containers)
 
 - ความแตกต่างระหว่าง Server, VM และ Container พร้อมกรณีใช้งานที่เหมาะสม
 - Docker พื้นฐาน: image/container, การทำ port mapping (`-p`), การใช้ volume/bind mount, การตั้งค่า environment/config
@@ -20,14 +29,14 @@
 - เครือข่ายพื้นฐานสำหรับโครงสร้างพื้นฐาน: port, reverse proxy, firewall/security group, เครือข่ายภายใน/ภายนอก
 - การคงอยู่ของข้อมูล (persistent volume) และแนวทาง backup/rollback เบื้องต้น
 
-## 3️⃣ Version Control (Git)
+## 4️⃣ Version Control (Git)
 
 - ความหมายของ Repository, Commit, Branch, Merge
 - ทำไมต้องใช้ Version Control
 - Workflow พื้นฐาน (Git Flow หรือ Trunk-Based Development)
 - ความเข้าใจเรื่อง Code Review และ Pull Request
 
-## 4️⃣ พื้นฐาน Data Structure & Database
+## 5️⃣ พื้นฐาน Data Structure & Database
 
 - เข้าใจหลักการจัดเก็บข้อมูลในระบบฐานข้อมูล และความแตกต่างเชิงแนวคิดระหว่าง Relational กับ NoSQL เพื่อสื่อสารกับทีมได้ตรงกัน
 - รู้จักคำศัพท์สำคัญที่ใช้คุยกับทีม เช่น Table, Primary Key, Index, Collection, Query
@@ -35,20 +44,20 @@
 - ตระหนักถึงข้อจำกัดที่พบบ่อย เช่น ขนาดข้อมูล การเข้าถึงพร้อมกัน ข้อกำหนดด้านความครบถ้วน หรือข้อจำกัดการจัดเก็บ เพื่อร่วมวางแผนการใช้งานร่วมกับทีม
 - สามารถอธิบายผลกระทบระดับพื้นฐานของการเลือกโครงสร้างข้อมูลหรือ schema ต่อประสิทธิภาพและการดูแลรักษาระบบร่วมกันได้
 
-## 5️⃣ Software Development Lifecycle (SDLC)
+## 6️⃣ Software Development Lifecycle (SDLC)
 
 - ขั้นตอน Requirement → Design → Development → Testing → Deployment
 - บทบาทของแต่ละทีมใน SDLC
 - ความเข้าใจเรื่อง CI/CD Pipeline และประโยชน์ของ Automation
 
-## 6️⃣ Basic Security Awareness
+## 7️⃣ Basic Security Awareness
 
 - ความสำคัญของการปกป้องข้อมูล (Data Privacy)
 - แนวทางการตั้งรหัสผ่านที่ปลอดภัย
 - ความเสี่ยงที่พบบ่อย (Phishing, Social Engineering)
 - การเก็บรักษา Credential และ API Key
 
-## 7️⃣ พื้นฐานการสื่อสารและการนำเสนอ (Communication & Visualization)
+## 8️⃣ พื้นฐานการสื่อสารและการนำเสนอ (Communication & Visualization)
 
 - การเขียน Requirement, User Story, Acceptance Criteria ให้ชัดเจนและอ่านง่าย
 - การใช้ภาพ, Diagram (เช่น Flowchart, Sequence Diagram, Wireframe) เพื่ออธิบายแนวคิดหรือกระบวนการ
