@@ -12,12 +12,13 @@
 - HTTP Status Codes ที่ควรรู้ (200, 400, 404, 500)
 - REST API, JSON, และการสื่อสารระหว่างระบบ
 
-## 2️⃣ พื้นฐานระบบปฏิบัติการ (OS Basics)
+## 2️⃣ พื้นฐาน Infrastructure (Servers, Virtualization & Containers)
 
-- ความแตกต่างระหว่าง OS, Application, Process
-- การจัดการไฟล์, โฟลเดอร์ และ Permission
-- Concept ของ Memory, CPU, และ Process ที่ทำงาน
-- รู้จัก Command Line เบื้องต้น
+- ความแตกต่างระหว่าง Server, VM และ Container พร้อมกรณีใช้งานที่เหมาะสม
+- Docker พื้นฐาน: image/container, การทำ port mapping (`-p`), การใช้ volume/bind mount, การตั้งค่า environment/config
+- การจัดการบริการบน Linux ด้วย systemd (start/stop/status/enable)
+- เครือข่ายพื้นฐานสำหรับโครงสร้างพื้นฐาน: port, reverse proxy, firewall/security group, เครือข่ายภายใน/ภายนอก
+- การคงอยู่ของข้อมูล (persistent volume) และแนวทาง backup/rollback เบื้องต้น
 
 ## 3️⃣ Version Control (Git)
 

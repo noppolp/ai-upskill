@@ -60,38 +60,38 @@
 
 ---
 
-## Part 2: พื้นฐานระบบปฏิบัติการ (OS Basics)
+## Part 2: พื้นฐาน Infrastructure (Servers, Virtualization & Containers)
 
-1. **[Multiple Choice]** ข้อใดอธิบายความแตกต่างที่ถูกต้องระหว่าง Process กับ Application?
-   - A. Process คือชุดคำสั่งที่เก็บถาวร ส่วน Application คือสิ่งที่ทำงานชั่วคราว
-   - B. Process คือ instance ของโปรแกรมที่กำลังทำงาน ส่วน Application คือซอฟต์แวร์ที่ผู้ใช้ติดตั้ง
-   - C. Process และ Application ไม่มีความแตกต่างกัน
-   - D. Application เป็นอุปกรณ์ฮาร์ดแวร์ ส่วน Process คือซอฟต์แวร์
+1. **[Multiple Choice]** ข้อใดอธิบายความแตกต่างหลักระหว่าง Virtual Machine (VM) กับ Container ได้ถูกต้องที่สุด?
+   - A. VM ใช้ kernel ร่วมกับ host เสมอ ส่วน Container มี kernel แยกของตัวเอง
+   - B. VM จำลองฮาร์ดแวร์และมี Guest OS แยก ส่วน Container ใช้ kernel ร่วมกับ host และแยกระดับ process
+   - C. ทั้ง VM และ Container ต้องใช้ hypervisor ชนิดเดียวกันเสมอ
+   - D. Container จำเป็นต้องใช้ hypervisor เพื่อให้ทำงานได้
    _เฉลย:_ B
 
-2. **[Multiple Choice]** เมื่อเปลี่ยน Permission ของไฟล์จาก `644` เป็น `600` จะเกิดผลอย่างไร?
-   - A. เจ้าของอ่านได้เท่านั้น ส่วนกลุ่มและคนอื่นยังอ่านได้
-   - B. เจ้าของอ่านและเขียนได้ ส่วนกลุ่มและคนอื่นไม่มีสิทธิ์ใดๆ
-   - C. สมาชิกกลุ่มสามารถเขียนไฟล์ได้แต่ผู้อื่นอ่านไม่ได้
-   - D. ทุกคนอ่านและเขียนไฟล์ได้เต็มที่
+2. **[Multiple Choice]** หากรันคำสั่ง `docker run -p 8080:80 myapp` ระบบจะเปิดให้เข้าถึงบริการผ่านพอร์ตใดบนเครื่อง host?
+   - A. พอร์ต 80 บน host จะชี้ไปที่พอร์ต 8080 ใน container
+   - B. พอร์ต 8080 บน host จะชี้ไปที่พอร์ต 80 ใน container
+   - C. พอร์ต 8080 ใน container จะชี้ไปที่พอร์ต 80 บน host
+   - D. ทั้ง host และ container จะใช้พอร์ต 8080 เหมือนกัน
    _เฉลย:_ B
 
-3. **[Multiple Choice]** คำสั่งใดต่อไปนี้เหมาะสำหรับดูปริมาณการใช้ CPU และ Memory แบบเรียลไทม์ใน Command Line?
-   - A. `ls`
-   - B. `top`
-   - C. `mkdir`
-   - D. `cat`
+3. **[Multiple Choice]** หากต้องการให้ service เริ่มทำงานอัตโนมัติหลังบูตบน Linux ที่ใช้ systemd คำสั่งใดเหมาะสมที่สุด?
+   - A. `service <name> autoon`
+   - B. `systemctl enable <name>` และตรวจสอบด้วย `systemctl status <name>`
+   - C. `initctl start <name>`
+   - D. แก้ไขไฟล์ `/etc/rc.local` เท่านั้น
    _เฉลย:_ B
 
-4. **[Multiple Choice]** หากต้องการย้ายไฟล์จากโฟลเดอร์หนึ่งไปอีกโฟลเดอร์หนึ่งในระบบ Unix ควรใช้คำสั่งใด?
-   - A. `cp`
-   - B. `mv`
-   - C. `rm`
-   - D. `chmod`
+4. **[Multiple Choice]** หากต้องการเก็บข้อมูลของแอปที่รันใน Docker ให้คงอยู่แม้ container ถูกลบ/สร้างใหม่ ควรทำอย่างไร?
+   - A. บันทึกข้อมูลไว้ใน filesystem ภายใน container โดยตรง
+   - B. ใช้ Docker Volume หรือ Bind Mount ไปยังโฟลเดอร์บน host
+   - C. Commit container เป็น image ใหม่ทุกครั้งก่อนหยุดการทำงาน
+   - D. ใช้ `tmpfs` สำหรับเก็บข้อมูลทั้งหมด
    _เฉลย:_ B
 
-5. **[Subjective - Mini Scenario]** คุณได้รับแจ้งว่าบริการบนเซิร์ฟเวอร์ทำงานช้าขึ้นมาก เชื่อว่าเกี่ยวข้องกับการใช้ทรัพยากรสูงจากโพรเซสอื่น คุณจะตรวจสอบและจัดการเบื้องต้นอย่างไรโดยใช้เครื่องมือ Command Line?
-   _แนวคำตอบ:_ ใช้ `top`/`htop` หรือ `ps aux --sort=-%cpu` เพื่อตรวจหากระบวนการที่ใช้ CPU/Memory สูง, ตรวจดู log ของบริการ (`journalctl` หรือไฟล์ log) เพื่อยืนยันอาการ, หากจำเป็นชั่วคราวอาจ `kill` หรือ `systemctl restart` โพรเซสที่ผิดปกติหลังจากยืนยันผลกระทบ, และวางแผนหาสาเหตุเชิงลึกเพิ่มเติม เช่น การรั่วหน่วยความจำหรือ scheduling
+5. **[Subjective - Mini Scenario]** ทีมต้องย้ายบริการเว็บเดี่ยวจากเซิร์ฟเวอร์ฟิสิคัลไปสู่สถาปัตยกรรมที่บริหารจัดการง่ายและขยายได้ในอนาคต คุณจะเลือกใช้ VM หรือ Container อย่างไร และจะออกแบบการ Deploy เบื้องต้น (network, storage, secret/config, monitoring, rollout/rollback) อย่างไรให้ปลอดภัยและดูแลง่าย?
+   _แนวคำตอบ:_ พิจารณา Container เป็นตัวเลือกแรกเพื่อความเบาและสเกลง่าย (ใช้ Docker/Compose หรือ Orchestrator เมื่อโตขึ้น), แยก concerns เป็น service + DB, ใช้ volume สำหรับข้อมูลถาวร, จัดการ secret ผ่าน environment/secret manager, กำหนด resource limit, เปิดพอร์ตผ่าน reverse proxy (เช่น Nginx) และ network แยก, ติดตั้ง log/metrics (เช่น node exporter, Loki/Promtail หรือ cloud APM), ทำ healthcheck และกำหนดขั้นตอน rollout/rollback (image tag/immutable, blue‑green/compose version pinning), หากต้องการ isolation สูงหรือ dependency ซับซ้อนอาจเลือก VM สำหรับบางส่วน (เช่น DB) และใช้ container สำหรับแอป
 
 ---
 
