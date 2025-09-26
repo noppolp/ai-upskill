@@ -56,7 +56,7 @@
 
 ## 9. เครื่องมือและทรัพยากรที่แนะนำ
 - **LLM Providers:** OpenAI, Anthropic, Google, Azure OpenAI, HuggingFace Model Hub
-- **Dev Tools:** GitHub Copilot, Amazon CodeWhisperer, JetBrains AI, Cursor, แพลตฟอร์ม workflow (LangChain, LlamaIndex)
+- **Dev Tools:** GitHub Copilot, Amazon CodeWhisperer, JetBrains AI, Cursor, Claude Code, Codeium/Windsurf; CLI tools: Codex CLI, Aider, OpenAI CLI, Ollama, Promptfoo; แพลตฟอร์ม workflow (LangChain, LlamaIndex)
 - **Monitoring & Evaluation:** Weights & Biases, LangSmith, MLflow, EvidentlyAI, Promptfoo
 - **Learning Resources:** เอกสารของผู้ให้บริการโมเดล, Coursera/DeepLearning.AI, fast.ai, Prompt Engineering Guide, AI Incident Database
 
