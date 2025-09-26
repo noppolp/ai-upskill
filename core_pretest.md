@@ -131,7 +131,7 @@
    - D. ใช้ Docker Volume หรือ Bind Mount ไปยังโฟลเดอร์บน host
    _เฉลย:_ D
 
-5. **[Subjective - Mini Scenario]** ทีมต้องย้ายบริการเว็บเดี่ยวจากเซิร์ฟเวอร์ฟิสิคัลไปสู่สถาปัตยกรรมที่บริหารจัดการง่ายและขยายได้ในอนาคต คุณจะเลือกใช้ VM หรือ Container อย่างไร และจะออกแบบการ Deploy เบื้องต้น (network, storage, secret/config, monitoring, rollout/rollback) อย่างไรให้ปลอดภัยและดูแลง่าย?
+5. **[Subjective - Mini Scenario]** ทีมต้องย้ายบริการ Web Application จาก Physical Server ไปสู่ Architecture ใหม่ที่บริหารจัดการง่ายและขยายได้ในอนาคต คุณจะเลือกใช้ VM หรือ Container อย่างไร และจะออกแบบการ Deploy เบื้องต้น (network, storage, secret/config, monitoring, rollout/rollback) อย่างไรให้ปลอดภัยและดูแลง่าย?
    _แนวคำตอบ:_ พิจารณา Container เป็นตัวเลือกแรกเพื่อความเบาและสเกลง่าย (ใช้ Docker/Compose หรือ Orchestrator เมื่อโตขึ้น), แยก concerns เป็น service + DB, ใช้ volume สำหรับข้อมูลถาวร, จัดการ secret ผ่าน environment/secret manager, กำหนด resource limit, เปิดพอร์ตผ่าน reverse proxy (เช่น Nginx) และ network แยก, ติดตั้ง log/metrics (เช่น node exporter, Loki/Promtail หรือ cloud APM), ทำ healthcheck และกำหนดขั้นตอน rollout/rollback (image tag/immutable, blue‑green/compose version pinning), หากต้องการ isolation สูงหรือ dependency ซับซ้อนอาจเลือก VM สำหรับบางส่วน (เช่น DB) และใช้ container สำหรับแอป
 
 ---
